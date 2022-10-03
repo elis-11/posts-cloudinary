@@ -65,17 +65,17 @@ export const authSlice = createSlice({
   },
   extraReducers: {
     // Register user
-    [registerUser.pending]: (state) => {
+    [registerUser.pending]: (state) => {  // sapros otpravljaetsa
       state.isLoading = true;
       state.status = null;
     },
-    [registerUser.fulfilled]: (state, action) => {
+    [registerUser.fulfilled]: (state, action) => { //### Link: https://www.youtube.com/watch?v=QxTeE5EMiWI&list=LL&index=121 sapros vipolnilsa do konza
       state.isLoading = false;
       state.status = action.payload.message;
       state.user = action.payload.user;
       state.token = action.payload.token;
     },
-    [registerUser.rejectWithValue]: (state, action) => {
+    [registerUser.rejectWithValue]: (state, action) => {  // vosnikla oshibka
       state.status = action.payload.message;
       state.isLoading = false;
     },

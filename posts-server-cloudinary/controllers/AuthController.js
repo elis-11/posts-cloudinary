@@ -1,7 +1,7 @@
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-
+ 
 // register user
 export const register = async (req, res) => {
   try {
@@ -9,15 +9,17 @@ export const register = async (req, res) => {
     const userExisting = await User.findOne({ email });
     if (userExisting) {
       return res.json({ message: `User with email ${email} already exists` });
-    }
-
+      // return res.status(402).json({ message: `User with email ${email} already exists` });
+    } 
+    // hashing - password
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
 
+    // create new user
     const newUser = new User({
       name,
       email,
-      password: hash,
+      password: hash,  // hashing password
     });
 
     const token = jwt.sign(
@@ -28,8 +30,10 @@ export const register = async (req, res) => {
       { expiresIn: "7d" }
     );
 
+    // save new user
     await newUser.save();
 
+    // sand new user to Frontend
     res.json({
       newUser,
       token,

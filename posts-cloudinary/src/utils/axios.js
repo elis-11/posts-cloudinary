@@ -6,7 +6,7 @@ const instance = axios.create({
   // baseURL: "http://localhost:5000/api",
   // baseURL: (`${API_URL}/api`),
   // baseURL: "http://localhost:5000",
-  baseURL: (`${API_URL}`),
+  baseURL: (`${API_URL}`),    // /api - deleted  
 
 });
 
