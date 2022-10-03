@@ -4,24 +4,26 @@
 ### home
 GET {{API_URL}}/
 
+# GET {{API_URL}}/api/auth
 ### all
-GET {{API_URL}}/api/auth
+GET {{API_URL}}/auth
 
 ### create / register
-POST {{API_URL}}/api/auth/register
+# POST {{API_URL}}/api/auth/register
+POST {{API_URL}}/auth/register
 Content-Type: application/json
 
 {
-    "name": "iman",
-    "email": "iman@gmail.com",
-    "password": "iman"
+    "name": "Diana",
+    "email": "diana@gmail.com",
+    "password": "diana"
 }
 
 ### login
-POST {{API_URL}}/api/auth/login
+POST {{API_URL}}/auth/login
 Content-Type: application/json
 
 {
-    "email": "iman@gmail.com",
-    "password": "iman" 
+    "email": "diana@gmail.com",
+    "password": "diana" 
 }

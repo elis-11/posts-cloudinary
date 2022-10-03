@@ -22,20 +22,24 @@ app.use(express.static('uploads'));
 // });
 
 app.get("/", (req, res) => {
+// res.json({ message: "Hello, world!" });
+
     res.send(`
     <h2>Welcome!</h2>
   <div>Routes:</div>
-  <div>Users: <a href="/api/auth">/users</a></div>
-  <div>Posts: <a href="/api/posts">/posts</a></div>
-  <div>Comments: <a href="/api/comments">/comments</a></div>
+  <div>Users: <a href="/auth">/users</a></div>
+  <div>Posts: <a href="/posts">/posts</a></div>
+  <div>Comments: <a href="/comments">/comments</a></div>
   `);
 });
+{/* <div>Users: <a href="/api/auth">/users</a></div> */}     // /api - deleted  
 {/* <div> Frontend URL: <a href="${process.env.FRONTEND_ORIGIN}"> ${process.env.FRONTEND_ORIGIN}</a></div> */}
   
 
-app.use("/api/auth", authRouter);
-app.use("/api/posts", postRouter);
-app.use("/api/comments", commentRouter);
+// app.use("/api/auth", authRouter);    // /api - deleted  
+app.use("/auth", authRouter);
+app.use("/posts", postRouter);
+app.use("/comments", commentRouter);
 
 async function start() {
   try {

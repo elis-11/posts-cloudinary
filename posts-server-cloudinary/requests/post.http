@@ -4,10 +4,11 @@
 GET {{API_URL}}/
 
 ### all
-GET {{API_URL}}/api/posts
+GET {{API_URL}}/posts
 
 ### create / register
-POST {{API_URL}}/api/posts
+# POST {{API_URL}}/api/posts
+POST {{API_URL}}/posts
 Content-Type: application/json
 
 {
